@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_compra_compra,compra.compra,model_compra_compra,,1,1,1,1
+access_compra_det_compra,compra.det_compra,model_compra_det_compra,,1,1,1,1
+access_compra_proveedores,compra.proveedores,model_compra_proveedores,,1,1,1,1
+access_compra_producto,compra.producto,model_compra_producto,,1,1,1,1
+access_venta_cliente,venta.cliente,model_venta_venta,,1,1,1,1
+access_venta_factura,venta.factura,model_venta_factura,,1,1,1,1
+access_venta_det_factura,venta.det_factura,model_venta_det_factura,,1,1,1,1

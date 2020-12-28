@@ -1,0 +1,65 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="compra.tree_producto_list">
+      <field name="name">Producto</field>
+      <field name="model">compra.producto</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="nombre_producto"/>
+          <field name="precio_procucto"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="compra_producto_form">
+      <field name="name">compra</field>
+      <field name="model">compra.producto</field>
+      <field name="arch" type="xml">
+        <form string ="Productos">
+          <sheet>
+            <group>
+              <field name="id"/>
+              <field name="nombre_producto"/>
+              <field name="precio_procucto"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="compra_producto_action_window">
+      <field name="name">Registro de productos</field>
+      <field name="res_model">compra.producto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="compra_producto_action_server">
+      <field name="name">producto server</field>
+      <field name="model_id" ref="model_compra_producto"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+    <!-- actions -->
+
+    <!-- <menuitem name="Comuna"
+              id="maintenance_comuna"
+              parent="maintenance.menu_maintenance_configuration"
+              action="maintenance_comuna_action_window"/> -->
+
+  </data>
+</odoo>

@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="inventario.tree_inventario_list">
+      <field name="name">Inventario</field>
+      <field name="model">inventario.inventario</field>
+      <field name="arch" type="xml">
+        <tree>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="compra_proveedores_form">
+      <field name="name">inventario</field>
+      <field name="model">inventario.inventario</field>
+      <field name="arch" type="xml">
+        <form string ="Inventario">
+          <sheet>
+            <group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="inventario_inventario_action_window">
+      <field name="name">Registro de inventario</field>
+      <field name="res_model">inventario.inventario</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="inventario_inventario_action_server">
+      <field name="name">inventario server</field>
+      <field name="model_id" ref="model_inventario_inventario"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+    <!-- actions -->
+
+    <!-- <menuitem name="Comuna"
+              id="maintenance_comuna"
+              parent="maintenance.menu_maintenance_configuration"
+              action="maintenance_comuna_action_window"/> -->
+
+  </data>
+</odoo>
